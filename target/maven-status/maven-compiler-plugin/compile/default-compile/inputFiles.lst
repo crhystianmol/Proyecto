@@ -1,0 +1,13 @@
+C:\Users\User\conectECI\src\main\java\com\conectECI\beans\BaseBean.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\beans\PostBean.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\Exception\ConectException.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\DAOS\UserDao.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\myBatisDAO\MyBatisUserDAO.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\mappers\UserMapper.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\service\Impl\UserServiceImpl.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\beans\JoinBean.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\guice\GuiceContextListener.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\beans\UserBeans.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\Model\User.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\beans\ActionBean.java
+C:\Users\User\conectECI\src\main\java\com\conectECI\service\UserService.java
