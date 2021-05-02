@@ -11,13 +11,18 @@
 
 <h:body>
 <h:form>
-    #{"Nueva Categoria"}
-
-    <p:inputText name="categoria">
-    </p:inputText >
+    #{"Nombre"}
+    <p:inputText name="Nombre" value="#{categoriaBean.nombre}"/>
     <br/> <br/>
-    <p:commandButton value="Crear" action="#{actionBean.menu()}">
-    </p:commandButton>
+    #{"Descripcion"}
+    <p:inputTextarea name="Descripcion" cols="40" rows="5" value="#{categoriaBean.descripcion}"/>
+    <br/> <br/>
+    <p:commandButton value="Crear" action="#{categoriaBean.setInfo()}"/>
+    <p:commandButton value="Volver" action="#{actionBean.menu()}"/>
+    <br/> <br/>
+    <p:outputLabel value="#{categoriaBean.getMensaje()}"/>
+
+
 </h:form>
 </h:body>
 </html>

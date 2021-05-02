@@ -4,8 +4,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import com.conectECI.DAOS.CategoriaDao;
 import com.conectECI.DAOS.UserDao;
+import com.conectECI.myBatisDAO.MyBatisCategoriaDAO;
 import com.conectECI.myBatisDAO.MyBatisUserDAO;
+import com.conectECI.service.CategoriaService;
+import com.conectECI.service.Impl.CategoriaServiceImpl;
 import com.conectECI.service.Impl.UserServiceImpl;
 import com.conectECI.service.UserService;
 import org.mybatis.guice.XMLMyBatisModule;
@@ -34,6 +38,8 @@ public class GuiceContextListener implements ServletContextListener {
                 // TODO Add service class associated to Stub implementation
                 bind(UserService.class).to(UserServiceImpl.class);
                 bind(UserDao.class).to(MyBatisUserDAO.class);
+                bind(CategoriaService.class).to(CategoriaServiceImpl.class);
+                bind(CategoriaDao.class).to(MyBatisCategoriaDAO.class);
                 //faltan mas bind
             }
         });

@@ -11,8 +11,12 @@
 
 <h:body>
  <h:form>
-  <p:commandButton value="Cerrar Sesion" action="#{userBean.logout()}">
-  </p:commandButton>
+  <p:commandButton value="Crear Categoria" action="#{actionBean.crearCategoria()}"></p:commandButton>
+  <p:commandButton value="Actualizar Categoria" action="#{actionBean.actualizarCategoria()}"></p:commandButton>
+  <p:commandButton value="Registrar Necesidad" action="#{actionBean.registrarNecesidad()}"></p:commandButton>
+  <br/><br/>
+  <p:commandButton value="Cerrar Sesion" action="#{userBean.logout()}"></p:commandButton>
+
  </h:form>
 </h:body>
 </html>
