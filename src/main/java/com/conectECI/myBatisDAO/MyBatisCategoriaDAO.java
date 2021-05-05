@@ -26,12 +26,11 @@ public class MyBatisCategoriaDAO implements CategoriaDao {
         return null;
     }
 
-    @Override
-    public ArrayList<Categoria> getCategorias() {
-        return null;
+    public void updateCategory(Categoria categoria){
+        mapper.updateCategory(categoria.getName(),categoria.getDescription(),categoria.getStatus(),categoria.getDateM());
     }
 
-    public ArrayList<Categoria> getCategoria() {
+    public ArrayList<Categoria> getCategorias() {
         return mapper.getCategorias();
     }
 }

@@ -9,5 +9,6 @@ import java.util.ArrayList;
 public interface CategoriaService {
     public void addCategoria(Categoria categoria) throws ConectException;
     public Categoria getCategoria(String email);
-    public ArrayList<Categoria> getUser();
+    public ArrayList<Categoria> getCategorias();
+    public void updateCategory(Categoria categoria);
 }

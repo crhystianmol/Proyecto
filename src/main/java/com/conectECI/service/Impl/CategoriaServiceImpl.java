@@ -22,7 +22,12 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
 
-    public ArrayList<Categoria> getUser() {
-        return null;
+    public ArrayList<Categoria> getCategorias() {
+        return categoriaDao.getCategorias();
+    }
+
+    public void updateCategory(Categoria categoria) {
+        categoriaDao.updateCategory(categoria);
+
     }
 }

@@ -20,4 +20,5 @@ public class ActionBean {
         System.out.println("menu");
         FacesContext.getCurrentInstance().getExternalContext().redirect("menu.xhtml");
     }
+
 }

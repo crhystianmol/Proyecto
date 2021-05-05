@@ -9,4 +9,5 @@ public interface CategoriaDao {
     public void addCategoria(Categoria categoria);
     public Categoria getCategoria(String email);
     public ArrayList<Categoria> getCategorias();
+    public void updateCategory(Categoria categoria);
 }
