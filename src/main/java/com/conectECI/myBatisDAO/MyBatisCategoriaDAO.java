@@ -27,7 +27,7 @@ public class MyBatisCategoriaDAO implements CategoriaDao {
     }
 
     public void updateCategory(Categoria categoria){
-        mapper.updateCategory(categoria.getName(),categoria.getDescription(),categoria.getStatus(),categoria.getDateM());
+        mapper.updateCategory(categoria.getId(),categoria.getName(),categoria.getDescription(),categoria.getStatus(),categoria.getDateM());
     }
 
     public ArrayList<Categoria> getCategorias() {

@@ -8,6 +8,7 @@ import com.conectECI.service.CategoriaService;
 import com.conectECI.service.Impl.CategoriaServiceImpl;
 import com.conectECI.service.UserService;
 import org.apache.shiro.SecurityUtils;
+import org.primefaces.PrimeFaces;
 
 
 import javax.faces.bean.ManagedBean;
@@ -31,6 +32,7 @@ public class CategoriaBean extends BaseBean {
     private String rta;
     private CategoriaService categoriaService;
     private String mensajeUpdate;
+    private Categoria categoriaUpdate;
 
 
 
@@ -78,7 +80,6 @@ public class CategoriaBean extends BaseBean {
     public ArrayList<Categoria> getCategorias(){
         return categoriaService.getCategorias();
     }
-
     public void checkStatus(){
         if (rta=="true"){
             status=true;
@@ -107,18 +108,29 @@ public class CategoriaBean extends BaseBean {
 
     }
 
-    public void update(){
+    public void seleccion(Categoria categoriaUpdate){
+        this.categoriaUpdate=categoriaUpdate;
+        this.nombre=categoriaUpdate.getName();
+        this.descripcion=categoriaUpdate.getDescription();
+        PrimeFaces current = PrimeFaces.current();
+        current.executeScript("PF('dlg2').show();");
 
-        if(nombre != "") {
-            Categoria categoria = new Categoria(nombre, descripcion);
-            categoria.setDateM(new Date(System.currentTimeMillis()));
-            categoria.setStatus(false);
-            categoriaService.updateCategory(categoria);
-            mensajeUpdate = "Categoria Actualizada";
-        }
-        else{
-            mensajeUpdate="Informacion Errada (^.^) ";
-        }
+    }
+    public void update(){
+         if(nombre != "") {
+             categoriaUpdate.setName(nombre);
+             categoriaUpdate.setDescription(descripcion);
+             categoriaService.updateCategory(categoriaUpdate);
+             mensajeUpdate = "Categoria Actualizada";
+             PrimeFaces current = PrimeFaces.current();
+             current.executeScript("PF('dlg2').hide();");
+         }
+         else{
+             mensajeUpdate="Informacion Errada (^.^) ";
+         }
+        PrimeFaces current = PrimeFaces.current();
+        current.executeScript("PF('dlg3').show();");
+
     }
 
 }

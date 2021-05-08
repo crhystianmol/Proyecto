@@ -12,23 +12,7 @@
 
 <h:body>
     <h:form>
-
-        #{"Nombre"}
-        <p:inputText name="Nombre" value="#{categoriaBean.nombre}"/>
-        <br/> <br/>
-        #{"Estado"}
-        <input type="checkbox" name="Estado" values="Estado"/>
-        <br/> <br/>
-        #{"Descripcion"}
-        <p:inputTextarea name="Descripcion" cols="40" rows="5" value="#{categoriaBean.descripcion}"/>
-        <br/> <br/>
-        <p:commandButton value="Volver" action="#{actionBean.menu()}"/>
-        <br/> <br/>
-        #{categoriaBean.getMensajeUpdate()}
-
-
-
-
+        <p:commandButton value="Volver" action="#{actionBean.menu()}" update="@form"/>
         <br/> <br/>
             <div class="Categorias">
                 <p:dataTable var="categoria" value="#{categoriaBean.getCategorias()}">
@@ -52,12 +36,29 @@
                         <p:outputLabel value="#{categoria.getDateM()}" />
                     </p:column>
                     <p:column headerText="Editar">
-                        <p:commandButton value="Seleccionar" action="#{actionBean.update()}"/>
+                        <p:commandButton value="Seleccionar" action="#{categoriaBean.seleccion(categoria)}" update="@form" />
                     </p:column>
                 </p:dataTable>
             </div>
+        <p:dialog header="Actualizar Categoria" widgetVar="dlg2"  minHeight="40" width="350" showEffect="fade" modal="true">
+            <p class="p-m-0">#{"Nombre"}
+                <p:inputText name="Nombre" value="#{categoriaBean.nombre}"/>
+                <br/> <br/>
+                #{"Estado"}
+                <input type="checkbox" name="Estado" values="Estado"/>
+                <br/> <br/>
+                #{"Descripcion"}
+                <p:inputTextarea name="Descripcion" cols="40" rows="5" value="#{categoriaBean.descripcion}"/>
+                <br/> <br/>
+                <p:commandButton value="Actualizar" action="#{categoriaBean.update()}" update="@form"/>
+                <br/> <br/>
+            </p>
+        </p:dialog>
 
-
+        <p:dialog header="Notificacion" widgetVar="dlg3" minHeight="40" width="350" showEffect="fade" modal="true">
+        <p class="p-m-0">#{categoriaBean.getMensajeUpdate()}
+        </p>
+        </p:dialog>
 
     </h:form>
 </h:body>

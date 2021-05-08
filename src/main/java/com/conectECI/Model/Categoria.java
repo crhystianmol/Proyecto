@@ -3,7 +3,7 @@ package com.conectECI.Model;
 import java.sql.Date;
 
 public class Categoria {
-    private String id;
+    private int id;
     private String name;
     private String description;
     private Date dateI;
@@ -19,11 +19,11 @@ public class Categoria {
 
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
