@@ -61,6 +61,11 @@ public class UserBeans extends BaseBean {
             FacesContext.getCurrentInstance().getExternalContext().redirect("menu.xhtml");
         }
     }
+    public void isNotLogin() throws IOException {
+        if(SecurityUtils.getSubject().getPrincipal()== null){
+            FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+        }
+    }
     public void logout() throws IOException {
         SecurityUtils.getSubject().logout();
         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");

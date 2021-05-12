@@ -8,6 +8,6 @@ import java.util.ArrayList;
 public interface CategoriaDao {
     public void addCategoria(Categoria categoria);
     public Categoria getCategoria(String email);
-    public ArrayList<Categoria> getCategorias();
+    public ArrayList<Categoria> getCategorias(String emailUser);
     public void updateCategory(Categoria categoria);
 }

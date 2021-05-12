@@ -12,7 +12,8 @@
 
 <h:body>
     <h:form>
-        <p:commandButton value="Volver" action="#{actionBean.menu()}" update="@form"/>
+        #{userBean.isNotLogin()}
+        <p:commandButton icon="pi pi-home" value="Volver" action="#{actionBean.menu()}" update="@form"/>
         <br/> <br/>
             <div class="Categorias">
                 <p:dataTable var="categoria" value="#{categoriaBean.getCategorias()}">
@@ -45,7 +46,16 @@
                 <p:inputText name="Nombre" value="#{categoriaBean.nombre}"/>
                 <br/> <br/>
                 #{"Estado"}
-                <input type="checkbox" name="Estado" values="Estado"/>
+                <p:outputLabel for="@next" value="Basic"/>
+                <p:selectOneMenu id="option" value="#{categoriaBean.selectedOption}">
+                    <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                    <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                    <f:facet name="footer">
+                        <p:divider styleClass="p-mt-0" />
+                        <h:outputText value="2 options" style="font-weight:bold;"/>
+                    </f:facet>
+                </p:selectOneMenu>
                 <br/> <br/>
                 #{"Descripcion"}
                 <p:inputTextarea name="Descripcion" cols="40" rows="5" value="#{categoriaBean.descripcion}"/>

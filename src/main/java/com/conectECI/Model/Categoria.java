@@ -7,8 +7,9 @@ public class Categoria {
     private String name;
     private String description;
     private Date dateI;
-    private boolean status;
+    private String status;
     private Date dateM;
+    private String emailUser;
 
     public Categoria(){
 
@@ -18,7 +19,13 @@ public class Categoria {
         this.description= description;
 
     }
+    public String getEmailUser() {
+        return emailUser;
+    }
 
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
+    }
     public int getId() {
         return id;
     }
@@ -51,11 +58,11 @@ public class Categoria {
         this.dateI = dateI;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

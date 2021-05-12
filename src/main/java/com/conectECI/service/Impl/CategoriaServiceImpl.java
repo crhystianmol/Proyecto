@@ -22,8 +22,8 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
 
-    public ArrayList<Categoria> getCategorias() {
-        return categoriaDao.getCategorias();
+    public ArrayList<Categoria> getCategorias(String emailUser) {
+        return categoriaDao.getCategorias(emailUser);
     }
 
     public void updateCategory(Categoria categoria) {

@@ -19,7 +19,7 @@ public class MyBatisCategoriaDAO implements CategoriaDao {
         System.out.println("creo MyBatis");
     }
     public void addCategoria(Categoria categoria) {
-        mapper.addCategoria(categoria.getName(),categoria.getDescription(),categoria.getDateI(),categoria.getStatus(),categoria.getDateM());
+        mapper.addCategoria(categoria.getName(),categoria.getDescription(),categoria.getEmailUser(),categoria.getDateI(),categoria.getStatus(),categoria.getDateM());
     }
 
     public Categoria getCategoria(String email) {
@@ -27,10 +27,12 @@ public class MyBatisCategoriaDAO implements CategoriaDao {
     }
 
     public void updateCategory(Categoria categoria){
-        mapper.updateCategory(categoria.getId(),categoria.getName(),categoria.getDescription(),categoria.getStatus(),categoria.getDateM());
+        mapper.updateCategory(categoria.getId(),categoria.getName(),categoria.getDescription(),categoria.getEmailUser(),categoria.getStatus(),categoria.getDateM());
     }
 
-    public ArrayList<Categoria> getCategorias() {
-        return mapper.getCategorias();
+    public ArrayList<Categoria> getCategorias(String emailUser) {
+        return mapper.getCategorias(emailUser);
     }
 }
+
+

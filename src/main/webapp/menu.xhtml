@@ -11,6 +11,7 @@
 
 <h:body>
  <h:form>
+  #{userBean.isNotLogin()}
   <p:commandButton value="Crear Categoria" action="#{actionBean.crearCategoria()}"></p:commandButton>
   <p:commandButton value="Actualizar Categoria" action="#{actionBean.actualizarCategoria()}"></p:commandButton>
   <p:commandButton value="Registrar Necesidad" action="#{actionBean.registrarNecesidad()}"></p:commandButton>

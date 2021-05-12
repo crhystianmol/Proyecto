@@ -28,11 +28,15 @@ public class CategoriaBean extends BaseBean {
     private String mensaje;
     private Date dateI;
     private Date dateM;
-    private boolean status;
-    private String rta;
+    private String status;
     private CategoriaService categoriaService;
+    private String userEmail;
     private String mensajeUpdate;
     private Categoria categoriaUpdate;
+
+
+
+    private String selectedOption;
 
 
 
@@ -44,7 +48,7 @@ public class CategoriaBean extends BaseBean {
         return dateM;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
@@ -55,15 +59,14 @@ public class CategoriaBean extends BaseBean {
     }
 
 
-
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    public void setRta(String rta) {
-        this.rta = rta;
     }
     public String getNombre() {
         return nombre;
@@ -78,33 +81,37 @@ public class CategoriaBean extends BaseBean {
         return mensajeUpdate;
     }
     public ArrayList<Categoria> getCategorias(){
-        return categoriaService.getCategorias();
+        this.userEmail= SecurityUtils.getSubject().getPrincipal().toString();
+        return categoriaService.getCategorias(userEmail);
     }
-    public void checkStatus(){
-        if (rta=="true"){
-            status=true;
-        }else if(rta=="false"){
-            status=false;
-        }else{
-            rta="";
-        }
+    public String getSelectedOption() {
+        return selectedOption;
+    }
+
+    public void setSelectedOption(String selectedOption) {
+        this.selectedOption = selectedOption;
     }
 
     public void setInfo() throws ConectException, IOException {
 
         if(nombre != "" ){
+            setMensaje("Categoria creada");
             Categoria categoria = new Categoria(nombre,descripcion);
             categoria.setDateI(new Date(System.currentTimeMillis()));
             categoria.setDateM(new Date(System.currentTimeMillis()));
-            categoria.setStatus(true);
+            categoria.setEmailUser(SecurityUtils.getSubject().getPrincipal().toString());
+            System.out.print(SecurityUtils.getSubject().getPrincipal().toString());
+            categoria.setStatus("Arctivo");
             categoriaService.addCategoria(categoria);
-            mensaje="Categoria creada";
+
 
         }
         else{
-            mensaje="Nombre no valido";
+            setMensaje("Nombre no valido");
         }
-        FacesContext.getCurrentInstance().getExternalContext().redirect("crearCategoria.xhtml");
+        PrimeFaces current = PrimeFaces.current();
+        current.executeScript("PF('dlg4').show();");
+
 
     }
 
@@ -112,16 +119,21 @@ public class CategoriaBean extends BaseBean {
         this.categoriaUpdate=categoriaUpdate;
         this.nombre=categoriaUpdate.getName();
         this.descripcion=categoriaUpdate.getDescription();
+        this.userEmail= SecurityUtils.getSubject().getPrincipal().toString();
+
         PrimeFaces current = PrimeFaces.current();
         current.executeScript("PF('dlg2').show();");
 
     }
     public void update(){
          if(nombre != "") {
+             System.out.println(selectedOption);
              categoriaUpdate.setName(nombre);
              categoriaUpdate.setDescription(descripcion);
+             categoriaUpdate.setStatus(selectedOption);
              categoriaService.updateCategory(categoriaUpdate);
-             mensajeUpdate = "Categoria Actualizada";
+             mensajeUpdate="Categoria Actualizada (^.^)";
+
              PrimeFaces current = PrimeFaces.current();
              current.executeScript("PF('dlg2').hide();");
          }

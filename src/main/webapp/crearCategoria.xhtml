@@ -11,16 +11,21 @@
 
 <h:body>
 <h:form>
+    #{userBean.isNotLogin()}
     #{"Nombre"}
     <p:inputText name="Nombre" value="#{categoriaBean.nombre}"/>
     <br/> <br/>
     #{"Descripcion"}
     <p:inputTextarea name="Descripcion" cols="40" rows="5" value="#{categoriaBean.descripcion}"/>
     <br/> <br/>
-    <p:commandButton  value="Crear" action="#{categoriaBean.setInfo()}"/>
-    <p:commandButton value="Volver" action="#{actionBean.menu()}"/>
-    <br/> <br/>
-    #{categoriaBean.getMensaje()}
+    <p:commandButton  value="Crear" action="#{categoriaBean.setInfo()}" onclick="location.refresh()"/>
+    <p:commandButton icon="pi pi-home" value="Volver" action="#{actionBean.menu()}"/>
+
+    <p:dialog header="Notificacion" widgetVar="dlg4" minHeight="40" width="350" showEffect="fade" modal="true">
+        <p class="p-m-0">#{categoriaBean.getMensaje()}
+        </p>
+    </p:dialog>
+
 
 
 </h:form>

@@ -15,17 +15,18 @@
     </resultMap>
     <select parameterType="map" id="getCategorias" resultMap="CategoriaResult">
         SELECT * FROM Category
+        WHERE emailUser =#{emailUser};
 
     </select>
     <insert parameterType="map" id="addCategoria">
         INSERT INTO
-        Category (name1, description, dateI, status, dateM)
-        VALUES ( #{name}, #{description}, #{dateI}, #{status}, #{dateM});
+        Category (name1, emailUser, description, dateI, status, dateM)
+        VALUES ( #{name},#{emailUser}, #{description}, #{dateI}, #{status}, #{dateM});
     </insert>
     <update parameterType="map" id="updateCategory">
         UPDATE Category
         SET name1 = #{name},description= #{description}, dateM =#{dateM},status = #{status}
-        WHERE id1 = #{id}
+        WHERE id1 = #{id} and emailUser =#{emailUser};
     </update>
 
 
