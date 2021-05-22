@@ -15,7 +15,7 @@ public class NecesidadServiceImpl implements NecesidadService {
 
     @Override
     public void addNecesidad(Necesidad necesidad) throws ConectException {
-
+        necesidadDao.addNecesidad(necesidad);
     }
 
     @Override

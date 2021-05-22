@@ -13,7 +13,7 @@ public class MyBatisNecesidadDAO implements NecesidadDao {
     private NecesidadMapper mapper;
     @Override
     public void addNecesidad(Necesidad necesidad) {
-    mapper.addNecesidad(necesidad.getEmailUser(),necesidad.getCategoryId(),necesidad.getName(),necesidad.getDescription(),necesidad.getDateI(),necesidad.getStatus(),necesidad.getDateM());
+    mapper.addNecesidad(necesidad.getEmailUser(),necesidad.getCategoryId(),necesidad.getName(),necesidad.getDescription(),necesidad.getDateI(),necesidad.getStatus(),necesidad.getDateM(),necesidad.getUrgencia());
     }
 
     @Override

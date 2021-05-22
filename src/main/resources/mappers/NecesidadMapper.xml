@@ -12,6 +12,7 @@
         <result property="description" column="description"/>
         <result property="dateI" column="dateI"/>
         <result property="status" column="status"/>
+        <result property="urgencia" column="urgencia"/>
         <result property="dateM" column="dateM"/>
         <result property="numberSoli" column="numberSoli"/>
 
@@ -23,8 +24,8 @@
     </select>
     <insert parameterType="map" id="addNecesidad">
         INSERT INTO
-        Necessity (emailUser, categoryId, name, description, dateI, status, dateM)
-        VALUES ( #{emailUser},#{categoryId}, #{name}, #{description}, #{dateI}, #{status}, #{dateM});
+        Necessity (emailUser, categoryId, name1, description, dateI, status, dateM, urgencia)
+        VALUES ( #{emailUser},#{categoryId}, #{name}, #{description}, #{dateI}, #{status}, #{dateM},#{urgencia});
     </insert>
     <update parameterType="map" id="updateNecesidad">
         UPDATE Necessity

@@ -2,6 +2,8 @@ package com.conectECI.beans;
 import com.conectECI.Exception.ConectException;
 import com.conectECI.Model.Categoria;
 import com.conectECI.Model.Necesidad;
+import com.conectECI.service.Impl.CategoriaServiceImpl;
+import com.conectECI.service.Impl.NecesidadServiceImpl;
 import com.conectECI.service.NecesidadService;
 import org.apache.shiro.SecurityUtils;
 import org.primefaces.PrimeFaces;
@@ -10,7 +12,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.IOException;
 import java.sql.Date;
-import java.util.ArrayList;
 
 @ManagedBean(name="necesidadBean")
 @SessionScoped
@@ -33,6 +34,10 @@ public class NecesidadBean extends BaseBean{
     private String selectUrgencia;
     public String getSelectUrgencia() {
         return selectUrgencia;
+    }
+    public NecesidadBean (){
+        necesidadService =super.getInjector().getInstance(NecesidadServiceImpl.class);
+
     }
 
     public void setSelectUrgencia(String selectUrgencia) {
@@ -138,12 +143,13 @@ public class NecesidadBean extends BaseBean{
     public void setInfo() throws ConectException, IOException {
 
 
+
         if(nombre != "" ){
             Necesidad necesidad = new Necesidad(nombre,descripcion);
             necesidad.setDateI(new Date(System.currentTimeMillis()));
             necesidad.setDateM(new Date(System.currentTimeMillis()));
             necesidad.setEmailUser(SecurityUtils.getSubject().getPrincipal().toString());
-            necesidad.setStatus("Arctivo");
+            necesidad.setStatus("Activo");
             necesidad.setUrgencia(selectedOption);
             setMensaje("Necesidad creada");
             necesidadService.addNecesidad(necesidad);
