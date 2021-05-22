@@ -127,7 +127,6 @@ public class CategoriaBean extends BaseBean {
     }
     public void update(){
          if(nombre != "") {
-             System.out.println(selectedOption);
              categoriaUpdate.setName(nombre);
              categoriaUpdate.setDescription(descripcion);
              categoriaUpdate.setStatus(selectedOption);

@@ -13,6 +13,7 @@
     <typeAliases>
         <typeAlias type='com.conectECI.Model.User' alias='User'/>
         <typeAlias type='com.conectECI.Model.Categoria' alias='Categoria'/>
+        <typeAlias type='com.conectECI.Model.Necesidad' alias='Necesidad'/>
     </typeAliases>
 
     <environments default="development">
@@ -33,6 +34,7 @@
     <mappers>
         <mapper resource="mappers/UserMapper.xml"></mapper>
         <mapper resource="mappers/CategoriaMapper.xml"></mapper>
+        <mapper resource="mappers/NecesidadMapper.xml"></mapper>
     </mappers>
 
 
